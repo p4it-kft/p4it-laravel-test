@@ -1,0 +1,14 @@
+composer create-project laravel/laravel my_laravel_form
+
+php artisan serve
+
+php artisan migrate
+    .env-ben beállított adatbázis létrehozása és a migrációk lefuttatása
+
+php artisan make:model Message --migration
+    Message model és a hozzá tartozó migráció létrehozása
+
+php artisan make:controller ContactUsController
+
+php artisan make:request StoreMessageRequest
+    ebben lehet beállítani az entity rule-okat
