@@ -1,34 +1,51 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * Class Message
+ * 
  * @property int $id
  * @property string $name
  * @property string $title
- * @property string $text
+ * @property string|null $text
+ * @property int|null $author_id
+ * 
+ * @property MessageAuthor|null $message_author
+ * @property Collection|Tag[] $tags
+ *
+ * @package App\Models
  */
 class Message extends Model
 {
-    use HasFactory;
+	protected $table = 'messages';
+	public $timestamps = false;
 
-    public $timestamps = false;
+	protected $casts = [
+		'author_id' => 'int'
+	];
 
-    protected $table = 'messages';
-    protected $primaryKey = 'id';
-    protected $connection = 'mysql';
-//    protected $attributes = [  // ez bekavar a mentéskor, 0=>id, 1=>name, ilyenekkel egészíti ki a model attributes tömbjét
-//        'id',
-//        'name',
-//        'title',
-//        'text',
-//    ];
-    protected $fillable = [
-        'name',
-        'title',
-        'text',
-    ];
+	protected $fillable = [
+		'name',
+		'title',
+		'text',
+		'author_id'
+	];
+
+	public function message_author()
+	{
+		return $this->belongsTo(MessageAuthor::class, 'author_id');
+	}
+
+	public function tags()
+	{
+		return $this->belongsToMany(Tag::class, 'message_has_tag');
+	}
 }
