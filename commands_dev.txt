@@ -1,0 +1,15 @@
+
+composer require reliese/laravel --dev
+    https://github.com/reliese/laravel
+    ezzel lehet visszafejteni a táblákból a modelleket
+    init parancsok:
+    - php artisan vendor:publish --tag=reliese-models
+            készít egy models.php fájlt a config könyvtárba
+    - php artisan config:clear
+            config cache frissítése
+    - php artisan code:models --schema=my_laravel_form
+            !!! érdemes külön account alá betenni a db-t, mert a folyamat elején feldolgozza az összes sémát, amit talál a kapcsolat alatt
+            és ha valamelyiknél gond van, akkor ott megakad a folyamat, és már nem jut el a model visszafejtés részhez
+
+            van base model lehetőség: https://github.com/reliese/laravel#1-keeping-model-changes
+

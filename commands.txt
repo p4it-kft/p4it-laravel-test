@@ -12,3 +12,17 @@ php artisan make:controller ContactUsController
 
 php artisan make:request StoreMessageRequest
     ebben lehet beállítani az entity rule-okat
+
+php artisan make:migration create_sample
+    create_sample nevű migráció készítése a sample tábla létrehozására - a create szóból tudja, hogy tábla létrehozásról lesz szó
+    tartalma:
+        public function up(): void
+        {
+            Schema::create('sample', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+            });
+        }
+
+php artisan about
+    verziószámok lekérése
