@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $email
@@ -40,7 +40,10 @@ class User extends Model
 		'name',
 		'email',
 		'email_verified_at',
-		'password',
-		'remember_token'
 	];
+
+    protected $guarded = [
+        'password',
+        'remember_token'
+    ];
 }
