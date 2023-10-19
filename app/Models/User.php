@@ -42,6 +42,7 @@ class User extends Model
 		'email_verified_at',
 	];
 
+    // todo: try the password somewhere to understand the difference between guarded and hidden
     protected $guarded = [
         'password',
         'remember_token'

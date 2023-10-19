@@ -1,3 +1,6 @@
+@extends('main')
+@section('content')
+
 <form method="POST" action="{{ route('message.store') }}">
     @csrf
 
@@ -30,3 +33,5 @@
 
     <button type="submit">Submit</button>
 </form>
+
+@endsection

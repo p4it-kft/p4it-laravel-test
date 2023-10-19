@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Message
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $title
  * @property string|null $text
  * @property int|null $author_id
- * 
+ *
  * @property MessageAuthor|null $message_author
  * @property Collection|Tag[] $tags
  *

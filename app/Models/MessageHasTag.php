@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class MessageHasTag
- * 
+ *
  * @property int $message_id
  * @property int $tag_id
- * 
+ *
  * @property Message $message
  * @property Tag $tag
  *
@@ -30,7 +30,12 @@ class MessageHasTag extends Model
 		'tag_id' => 'int'
 	];
 
-	public function message()
+    protected $fillable = [
+        'message_id',
+        'tag_id'
+    ];
+
+    public function message()
 	{
 		return $this->belongsTo(Message::class);
 	}
