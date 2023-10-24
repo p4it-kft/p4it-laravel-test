@@ -49,13 +49,11 @@ class MessageForm extends Message
 
     public function load($relations)
     {
-        if (!parent::load($relations)) {
-            return false;
-        }
+        $model = parent::load($relations);
 
-        $this->email = $this->message_author->email ?? '';
+        $model->email = $this->message_author->email ?? '';
 
-        return true;
+        return $model;
     }
 
     /**
