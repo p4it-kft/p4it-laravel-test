@@ -47,14 +47,14 @@ class ContactUsAdvancedController extends Controller
             return redirect()->action([self::class, 'update'], ['id' => $messageId]);
         }
 
-        return view('contact-us.success');
+        return redirect()->action([self::class, 'create']);
     }
 
     public function list(Request $request): View
     {
         $messageForms = MessageForm::all();
 
-        return view('contact-us.list-advanced', compact('messageForms'));
+        return view('contact-us-advanced.list', compact('messageForms'));
     }
 
     private function getFormTemplate(MessageForm $messageForm): ContractsViewAlias|Application|ContractsFactoryAlias|ContractsApplicationAlias
@@ -63,7 +63,7 @@ class ContactUsAdvancedController extends Controller
 
         $tags = Tag::getAllLabelsById();
 
-        return view('contact-us.form-advanced', compact('messageForm', 'tags'));
+        return view('contact-us-advanced.form', compact('messageForm', 'tags'));
     }
 
 }
